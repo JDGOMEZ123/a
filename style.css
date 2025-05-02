@@ -1,0 +1,273 @@
+/* Variables globales */
+:root {
+    --primary-color: #9B4819;
+    --secondary-color: #C68B59;
+    --background-color: #FFF8F0;
+    --text-color: #33312E;
+    --nav-height: 72px;
+    --transition-speed: 0.3s;
+    --border-color: #E6D5C3;
+    --card-background: #FFFFFF;
+    --hover-color: #B4846C;
+    --accent-color: #7D5A50;
+    --error-color: #D85C27;
+    --success-color: #6B8E4E;
+}
+
+/* Estilos generales */
+body {
+    font-family: 'SF Pro Text', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Barra de navegación */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height);
+    background-color: var(--card-background);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    z-index: 1000;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-speed);
+    padding: 8px 0;
+}
+
+.nav-brand:hover {
+    color: var(--hover-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+}
+
+.nav-link {
+    padding: 8px 0;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color var(--transition-speed);
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transition: transform var(--transition-speed);
+}
+
+.nav-link:hover:after {
+    transform: scaleX(1);
+}
+
+/* Botones */
+.button-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+.button-primary:hover {
+    background-color: var(--hover-color);
+}
+
+.button-secondary {
+    background-color: var(--card-background);
+    color: var(--primary-color);
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    border: 1px solid var(--primary-color);
+    cursor: pointer;
+    transition: all var(--transition-speed);
+}
+
+.button-secondary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Contenedor principal */
+.main-container {
+    margin-top: calc(var(--nav-height) + 20px);
+    padding: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Tarjetas */
+.card {
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Estilos para el chat */
+.chat-container {
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.chat-message {
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.user-message {
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: 20%;
+}
+
+.assistant-message {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin-right: 20%;
+    border: 1px solid var(--border-color);
+}
+
+/* Estilos para las materias */
+.materia-card {
+    background: var(--card-background);
+    border-radius: 8px;
+    padding: 24px;
+    text-align: center;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+    border: 1px solid var(--border-color);
+}
+
+.materia-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos para formularios */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--background-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    transition: border-color var(--transition-speed);
+    color: var(--text-color);
+}
+
+.form-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(155, 72, 25, 0.1);
+}
+
+/* Mensajes de estado */
+.success-message {
+    background-color: var(--success-color);
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+.error-message {
+    background-color: var(--error-color);
+    color: white;
+    padding: 12px;
+    border-radius: 4px;
+    margin: 8px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .main-container {
+        padding: 16px;
+    }
+    
+    .materia-card {
+        margin: 8px 0;
+    }
+    
+    .card {
+        padding: 16px;
+    }
+}
